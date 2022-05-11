@@ -14,13 +14,12 @@ jobs:
       - name: Random stuff dumped
         uses: actions/checkout@v3
       - run: echo "Repo owner ${{ github.repository_owner }}"
-      - run: echo "Repo owner ${{ github.repository }}"
-      - run: echo "Repo owner ${{ github.ref }}"
-      - run: echo "Repo owner ${{ './github-actions/DotNet.GitHubAction' }}"
-      - run: echo "Repo owner ${{ steps.dotnet-code-metrics.outputs.updated-metrics }}"
-      - run: echo "Repo owner ${{ steps.dotnet-code-metrics.outputs.summary-title }}"
-      - run: echo "Repo owner ${{ steps.dotnet-code-metrics.outputs.summary-details }}"
-      - run: echo "Repo owner ${{ steps.dotnet-code-metrics.outputs.updated-metrics }}"
+      - run: echo "Repository ${{ github.repository }}"
+      - run: echo "Repo ref ${{ github.ref }}"
+      - run: echo "Action ${{ './github-actions/DotNet.GitHubAction' }}"
+      - run: echo "CodeMetrics - Updated metrics? ${{ steps.dotnet-code-metrics.outputs.updated-metrics }}"
+      - run: echo "CodeMetrics - Summary title ${{ steps.dotnet-code-metrics.outputs.summary-title }}"
+      - run: echo "CodeMetrics - Summary details ${{ steps.dotnet-code-metrics.outputs.summary-details }}"
 
       - name: List files in the repository
         run: |
