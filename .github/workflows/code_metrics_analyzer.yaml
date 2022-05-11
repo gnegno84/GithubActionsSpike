@@ -29,7 +29,7 @@ jobs:
         dir: ${{ './github-actions/DotNet.GitHubAction' }}
 
     - name: Random stuff dumped
-        uses: actions/checkout@v3
+      uses: actions/checkout@v3
       - run: echo "Repo owner ${{ github.repository_owner }}"
       - run: echo "Repository ${{ github.repository }}"
       - run: echo "Repo ref ${{ github.ref }}"
