@@ -28,6 +28,17 @@ jobs:
         branch: ${{ github.ref }}
         dir: ${{ './github-actions/DotNet.GitHubAction' }}
 
+    - name: Random stuff dumped
+        uses: actions/checkout@v3
+      - run: echo "Repo owner ${{ github.repository_owner }}"
+      - run: echo "Repository ${{ github.repository }}"
+      - run: echo "Repo ref ${{ github.ref }}"
+      - run: echo "Action ${{ './github-actions/DotNet.GitHubAction' }}"
+      - run: echo "CodeMetrics - Updated metrics? ${{ steps.dotnet-code-metrics.outputs.updated-metrics }}"
+      - run: echo "CodeMetrics - Summary title ${{ steps.dotnet-code-metrics.outputs.summary-title }}"
+      - run: echo "CodeMetrics - Summary details ${{ steps.dotnet-code-metrics.outputs.summary-details }}"
+
+
     # Create a pull request if there are changes.
     - name: Create pull request
       uses: peter-evans/create-pull-request@v3.4.1
