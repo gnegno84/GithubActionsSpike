@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GithubActionsSpike.Controllers;
@@ -21,6 +22,10 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
+         if(new Random().Next(100) < 50){
+             return new List<WeatherForecast>();
+         }
+         
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateTime.Now.AddDays(index),
@@ -30,7 +35,7 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
 
-     [HttpGet(Name = "Baboooom")]
+    [HttpGet(Name = "Baboooom")]
     public IEnumerable<WeatherForecast> GetBaboom()
     {
         return Enumerable.Range(1, 500000).Select(index => new WeatherForecast
